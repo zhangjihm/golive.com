@@ -3,86 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Your Website</title>
-    <meta name="description" content="A professional, responsive website template">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Golfive - Your Golf Blog & Community</title>
+    <meta name="description" content="Expert golf tips, course reviews, equipment guides, and community discussions for golfers of all levels.">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Golfive",
+        "description": "Your Ultimate Golf Blog & Community",
+        "url": "https://golfive.com",
+        "author": {
+            "@type": "Organization",
+            "name": "Golfive"
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">YourSite</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with Navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo" aria-label="Golfive Home">
+                    <span class="logo-text">Golfive</span>
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav">
+                    <span class="sr-only">Toggle menu</span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <nav class="main-nav" id="main-nav" role="navigation">
+                    <ul class="nav-list">
+                        <li><a href="/" class="nav-link active">Home</a></li>
+                        <li><a href="/blog" class="nav-link">Blog</a></li>
+                        <li><a href="/tips" class="nav-link">Golf Tips</a></li>
+                        <li><a href="/courses" class="nav-link">Courses</a></li>
+                        <li><a href="/shop" class="nav-link">Shop</a></li>
+                        <li><a href="/about" class="nav-link">About</a></li>
+                        <li><a href="/contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="/cart" class="cart-icon" aria-label="Shopping cart">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 11-4 0v-6m4 0V9a2 2 0 10-4 0v4.01"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to Your Website</h1>
-            <p>This is a clean, properly formatted HTML5 template. If you see this rendered page instead of raw HTML code, your site is working correctly!</p>
-            <a href="#features" class="btn">Get Started</a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Our Features</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Fast & Reliable</h3>
-                    <p>Built with modern web standards for optimal performance and reliability.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Fully Responsive</h3>
-                    <p>Looks great on all devices from mobile phones to desktop computers.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Beautiful Design</h3>
-                    <p>Clean, modern design that makes a great first impression.</p>
+    
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Elevate Your Golf Game</h1>
+                    <p class="hero-subtitle">Expert tips, course reviews, and gear guides from passionate golfers</p>
+                    <div class="hero-buttons">
+                        <a href="/blog" class="btn btn-primary">Read Latest Posts</a>
+                        <a href="/tips" class="btn btn-secondary">Golf Tips</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>YourSite</h3>
-                    <p>A professional website template built with HTML5, CSS3, and JavaScript.</p>
+        </section>
+        
+        <!-- Featured Posts -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Latest from the Fairway</h2>
+                    <a href="/blog" class="view-all">View All Posts</a>
                 </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
+                
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="images/short-game.jpg" alt="Golfer practicing short game" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <time datetime="2024-01-15">January 15, 2024</time>
+                                <span class="post-author">By John Smith</span>
+                            </div>
+                            <h3 class="post-title"><a href="/posts/short-game">Mastering Your Short Game</a></h3>
+                            <p class="post-excerpt">The short game is often the difference between a good golfer and a great one. Learn techniques to improve your chipping, pitching, and putting.</p>
+                            <a href="/posts/short-game" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="images/golf-courses.jpg" alt="Beautiful golf course at sunset" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <time datetime="2024-01-10">January 10, 2024</time>
+                                <span class="post-author">By Sarah Johnson</span>
+                            </div>
+                            <h3 class="post-title"><a href="/posts/top-courses">Top 10 Golf Courses to Visit in 2024</a></h3>
+                            <p class="post-excerpt">From Pebble Beach to St. Andrews, discover the world's most breathtaking golf courses that should be on every golfer's bucket list.</p>
+                            <a href="/posts/top-courses" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card">
+                        <div class="post-image">
+                            <img src="images/golf-drivers.jpg" alt="Collection of golf drivers" loading="lazy">
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <time datetime="2024-01-05">January 5, 2024</time>
+                                <span class="post-author">By Mike Davis</span>
+                            </div>
+                            <h3 class="post-title"><a href="/posts/best-drivers">Equipment Review: Best Drivers of 2024</a></h3>
+                            <p class="post-excerpt">We tested the latest drivers from TaylorMade, Callaway, Ping, and more to help you find the perfect club for your swing and budget.</p>
+                            <a href="/posts/best-drivers" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Expert Tips</h3>
+                        <p class="feature-description">Professional advice to improve every aspect of your golf game</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Course Reviews</h3>
+                        <p class="feature-description">Detailed reviews of the best golf courses around the world</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Gear Guides</h3>
+                        <p class="feature-description">Honest reviews and recommendations for golf equipment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-title">Golfive</h4>
+                    <p>Your ultimate golf blog and community for players of all skill levels.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/tips">Golf Tips</a></li>
+                        <li><a href="/courses">Course Reviews</a></li>
+                        <li><a href="/shop">Shop</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>Email: info@yoursite.com</p>
-                    <p>Phone: (123) 456-7890</p>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2024 YourSite. All rights reserved.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Golfive. All rights reserved.</p>
+                <p>golfive.com</p>
             </div>
         </div>
     </footer>
-
+    
+    <!-- JavaScript Files -->
     <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/forms.js"></script>
 </body>
 </html>
