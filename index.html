@@ -11,16 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Favicon - using a simple golf icon from a CDN -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/32/3096/3096328.png" type="image/x-icon">
     
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/pages/home.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Single CSS file that contains all styles -->
+    <link rel="stylesheet" href="css/style.css">
     
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -44,18 +39,18 @@
     <!-- Header with Navigation -->
     <header class="header" role="banner">
         <div class="container">
-            <div class="header-inner">
+            <div class="nav-container">
                 <a href="/" class="logo" aria-label="Golfive Home">
                     <span class="logo-text">Golfive</span>
                 </a>
                 
-                <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav">
+                <button class="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav">
                     <span class="sr-only">Toggle menu</span>
-                    <span class="hamburger"></span>
+                    <span>☰</span>
                 </button>
                 
                 <nav class="main-nav" id="main-nav" role="navigation">
-                    <ul class="nav-list">
+                    <ul class="nav-menu">
                         <li><a href="/" class="nav-link active">Home</a></li>
                         <li><a href="/blog" class="nav-link">Blog</a></li>
                         <li><a href="/tips" class="nav-link">Golf Tips</a></li>
@@ -85,8 +80,8 @@
                     <h1 class="hero-title">Elevate Your Golf Game</h1>
                     <p class="hero-subtitle">Expert tips, course reviews, and gear guides from passionate golfers</p>
                     <div class="hero-buttons">
-                        <a href="/blog" class="btn btn-primary">Read Latest Posts</a>
-                        <a href="/tips" class="btn btn-secondary">Golf Tips</a>
+                        <a href="/blog" class="btn">Read Latest Posts</a>
+                        <a href="/tips" class="btn btn-outline">Golf Tips</a>
                     </div>
                 </div>
             </div>
@@ -100,10 +95,10 @@
                     <a href="/blog" class="view-all">View All Posts</a>
                 </div>
                 
-                <div class="posts-grid">
-                    <article class="post-card">
+                <div class="blog-grid">
+                    <article class="blog-post">
                         <div class="post-image">
-                            <img src="images/short-game.jpg" alt="Golfer practicing short game" loading="lazy">
+                            <img src="https://via.placeholder.com/400x200/2e7d32/ffffff?text=Short+Game" alt="Golfer practicing short game" loading="lazy">
                         </div>
                         <div class="post-content">
                             <div class="post-meta">
@@ -116,9 +111,9 @@
                         </div>
                     </article>
                     
-                    <article class="post-card">
+                    <article class="blog-post">
                         <div class="post-image">
-                            <img src="images/golf-courses.jpg" alt="Beautiful golf course at sunset" loading="lazy">
+                            <img src="https://via.placeholder.com/400x200/4caf50/ffffff?text=Golf+Courses" alt="Beautiful golf course at sunset" loading="lazy">
                         </div>
                         <div class="post-content">
                             <div class="post-meta">
@@ -131,9 +126,9 @@
                         </div>
                     </article>
                     
-                    <article class="post-card">
+                    <article class="blog-post">
                         <div class="post-image">
-                            <img src="images/golf-drivers.jpg" alt="Collection of golf drivers" loading="lazy">
+                            <img src="https://via.placeholder.com/400x200/ffd700/2c3e50?text=Golf+Drivers" alt="Collection of golf drivers" loading="lazy">
                         </div>
                         <div class="post-content">
                             <div class="post-meta">
@@ -152,36 +147,38 @@
         <!-- Features Section -->
         <section class="section bg-light">
             <div class="container">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                            </svg>
+                <div class="features">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Expert Tips</h3>
+                            <p class="feature-description">Professional advice to improve every aspect of your golf game</p>
                         </div>
-                        <h3 class="feature-title">Expert Tips</h3>
-                        <p class="feature-description">Professional advice to improve every aspect of your golf game</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Course Reviews</h3>
+                            <p class="feature-description">Detailed reviews of the best golf courses around the world</p>
                         </div>
-                        <h3 class="feature-title">Course Reviews</h3>
-                        <p class="feature-description">Detailed reviews of the best golf courses around the world</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                            </svg>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Gear Guides</h3>
+                            <p class="feature-description">Honest reviews and recommendations for golf equipment</p>
                         </div>
-                        <h3 class="feature-title">Gear Guides</h3>
-                        <p class="feature-description">Honest reviews and recommendations for golf equipment</p>
                     </div>
                 </div>
             </div>
@@ -190,13 +187,13 @@
     
     <footer class="footer" role="contentinfo">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
+            <div class="footer-content">
+                <div class="footer-section">
                     <h4 class="footer-title">Golfive</h4>
                     <p>Your ultimate golf blog and community for players of all skill levels.</p>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-section">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="/blog">Blog</a></li>
@@ -206,7 +203,7 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-section">
                     <h4 class="footer-title">Connect</h4>
                     <ul class="footer-links">
                         <li><a href="/about">About Us</a></li>
@@ -215,16 +212,16 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-section">
                     <h4 class="footer-title">Newsletter</h4>
                     <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
-                        <button type="submit" class="btn btn-small">Subscribe</button>
+                        <input type="email" class="newsletter-input" placeholder="Your email" required aria-label="Email for newsletter">
+                        <button type="submit" class="btn">Subscribe</button>
                     </form>
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="copyright">
                 <p>&copy; 2024 Golfive. All rights reserved.</p>
                 <p>golfive.com</p>
             </div>
