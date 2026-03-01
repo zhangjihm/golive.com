@@ -332,7 +332,12 @@ a:hover {
 
 /* ===== HERO SECTION ===== */
 .hero {
-  background: linear-gradient(135deg, var(--primary-green-dark) 0%, var(--primary-green) 50%, var(--primary-green-light) 100%);
+  background: 
+    linear-gradient(135deg, rgba(26, 92, 58, 0.92) 0%, rgba(15, 61, 38, 0.88) 50%, rgba(45, 122, 80, 0.85) 100%),
+    url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   text-align: center;
   padding: var(--spacing-4xl) 0;
