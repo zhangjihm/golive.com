@@ -407,7 +407,20 @@ a:hover {
 }
 
 .hero-buttons .btn {
-  min-width: 180px;
+  min-width: 190px;
+  backdrop-filter: blur(2px);
+}
+
+.hero-buttons .btn.btn-outline {
+  border-color: rgba(255, 255, 255, 0.78);
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-buttons .btn.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
 }
 
 @keyframes fadeInUp {
@@ -453,7 +466,7 @@ a:hover {
 }
 
 .post-image {
-  height: 220px;
+  height: 230px;
   background: linear-gradient(135deg, var(--primary-green-light), var(--accent-gold));
   display: flex;
   align-items: center;
@@ -461,6 +474,7 @@ a:hover {
   overflow: hidden;
   position: relative;
 }
+
 
 .post-image::after {
   content: '';
@@ -482,7 +496,7 @@ a:hover {
 }
 
 .post-content {
-  padding: var(--spacing-xl);
+  padding: calc(var(--spacing-xl) + 2px) var(--spacing-xl) var(--spacing-xl);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -1055,6 +1069,21 @@ a:hover {
   .container {
     padding: 0 var(--spacing-sm);
   }
+
+  .hero {
+    padding: 4.5rem 0 3.5rem;
+    background-position: 60% center;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 2.4rem);
+    line-height: 1.18;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xl);
+  }
   
   .hero-buttons {
     flex-direction: column;
@@ -1064,5 +1093,10 @@ a:hover {
   
   .hero-buttons .btn {
     width: 100%;
+    min-width: 0;
+  }
+
+  .post-image {
+    height: 210px;
   }
 }
