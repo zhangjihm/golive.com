@@ -222,8 +222,9 @@
                 
                 <div class="footer-section">
                     <h4 class="footer-title">Newsletter</h4>
-                    <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Your email" required aria-label="Email for newsletter">
+                    <form name="newsletter" method="POST" data-netlify="true" action="newsletter/success/" class="newsletter-form" id="newsletter-form">
+                        <input type="hidden" name="form-name" value="newsletter" />
+                        <input id="newsletter-email" name="email" type="email" class="newsletter-input" placeholder="Your email" required aria-label="Email for newsletter">
                         <button type="submit" class="btn">Subscribe</button>
                     </form>
                 </div>
