@@ -9,6 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="canonical" href="https://golfive.com/contact/">
+  <meta property="og:title" content="Golfive">
+  <meta property="og:description" content="Golfive golf community and content.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://golfive.com/contact/">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -35,7 +40,7 @@
   <main id="main-content" role="main" class="section">
     <div class="container">
       <h1 class="section-title">Contact Us</h1>
-      <p>Tell us what you want next: drills, gear guides, or course reviews.</p><form class='newsletter-form' style='max-width:640px;display:grid;gap:12px'><input type='text' class='newsletter-input' placeholder='Your name' required><input type='email' class='newsletter-input' placeholder='Your email' required><textarea class='newsletter-input' placeholder='Your message' style='min-height:140px;border-radius:16px' required></textarea><button class='btn' type='submit'>Send Message</button></form>
+      <p>Tell us what you want next: drills, gear guides, or course reviews.</p><form name="contact" method="POST" data-netlify="true" action="../contact/success/" class="newsletter-form" style="max-width:640px;display:grid;gap:12px"><input type="hidden" name="form-name" value="contact" /><input type="text" name="name" class="newsletter-input" placeholder="Your name" required><input type="email" name="email" class="newsletter-input" placeholder="Your email" required><textarea name="message" class="newsletter-input" placeholder="Your message" style="min-height:140px;border-radius:16px" required></textarea><button class="btn" type="submit">Send Message</button></form>
     </div>
   </main>
   <footer class="footer" role="contentinfo">

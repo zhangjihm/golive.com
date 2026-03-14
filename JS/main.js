@@ -58,6 +58,7 @@ if (backToTopBtn) {
 // Generic form handler (exclude newsletter, which has dedicated behavior)
 document.querySelectorAll('form').forEach((form) => {
   if (form.id === 'newsletter-form') return;
+  if (form.hasAttribute('data-netlify')) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
