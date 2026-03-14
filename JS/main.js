@@ -126,60 +126,50 @@ function validateEmail(email) {
   });
 })();
 
-// Language routing + switcher (zh default, /en for English)
+// Language routing + switcher (zh default, /en English, /ja Japanese)
 (function languageRouting() {
   try {
     const path = window.location.pathname;
     const isEnPath = /(^|\/)en(\/|$)/.test(path);
+    const isJaPath = /(^|\/)ja(\/|$)/.test(path);
     const saved = localStorage.getItem('golfive_lang');
     const browserLang = (navigator.language || '').toLowerCase();
-    const preferred = saved || (browserLang.startsWith('zh') ? 'zh' : 'en');
+    const preferred = saved || (browserLang.startsWith('zh') ? 'zh' : (browserLang.startsWith('ja') ? 'ja' : 'en'));
 
-    const toEn = (p) => {
-      if (/^\/en\//.test(p)) return p;
-      if (p === '/') return '/en/';
-      return '/en' + (p.startsWith('/') ? p : '/' + p);
+    const toLang = (p, lang) => {
+      const base = p.replace(/^\/(en|ja)/, '') || '/';
+      if (lang === 'zh') return base;
+      if (base === '/') return `/${lang}/`;
+      return `/${lang}${base.startsWith('/') ? base : '/' + base}`;
     };
 
-    const toZh = (p) => {
-      if (!/^\/en\//.test(p) && p !== '/en') return p;
-      if (p === '/en' || p === '/en/') return '/';
-      return p.replace(/^\/en/, '') || '/';
-    };
+    const currentLang = isEnPath ? 'en' : (isJaPath ? 'ja' : 'zh');
 
-    if (!saved) {
-      if (preferred === 'en' && !isEnPath && window.location.hostname.includes('golfive.com')) {
-        window.location.href = toEn(path);
-        return;
-      }
-      if (preferred === 'zh' && isEnPath && window.location.hostname.includes('golfive.com')) {
-        window.location.href = toZh(path);
-        return;
-      }
+    if (!saved && window.location.hostname.includes('golfive.com') && preferred !== currentLang) {
+      window.location.href = toLang(path, preferred);
+      return;
     }
 
     const nav = document.querySelector('.nav-container');
     if (!nav) return;
+    const op = (l) => (currentLang === l ? '1' : '0.72');
     const holder = document.createElement('div');
     holder.style.marginLeft = '12px';
     holder.style.display = 'inline-flex';
     holder.style.alignItems = 'center';
     holder.style.gap = '8px';
-    holder.innerHTML = `<a href="#" id="lang-zh" style="color:#fff;opacity:${isEnPath ? '0.75' : '1'};font-weight:600;">中</a><span style="color:rgba(255,255,255,.6)">/</span><a href="#" id="lang-en" style="color:#fff;opacity:${isEnPath ? '1' : '0.75'};font-weight:600;">EN</a>`;
+    holder.innerHTML = `<a href="#" id="lang-zh" style="color:#fff;opacity:${op('zh')};font-weight:600;">中</a><span style="color:rgba(255,255,255,.6)">/</span><a href="#" id="lang-en" style="color:#fff;opacity:${op('en')};font-weight:600;">EN</a><span style="color:rgba(255,255,255,.6)">/</span><a href="#" id="lang-ja" style="color:#fff;opacity:${op('ja')};font-weight:600;">日</a>`;
     nav.appendChild(holder);
 
-    const zh = holder.querySelector('#lang-zh');
-    const en = holder.querySelector('#lang-en');
-    zh.addEventListener('click', (e) => {
+    const switchLang = (lang) => (e) => {
       e.preventDefault();
-      localStorage.setItem('golfive_lang', 'zh');
-      if (window.location.hostname.includes('golfive.com')) window.location.href = toZh(path);
-    });
-    en.addEventListener('click', (e) => {
-      e.preventDefault();
-      localStorage.setItem('golfive_lang', 'en');
-      if (window.location.hostname.includes('golfive.com')) window.location.href = toEn(path);
-    });
+      localStorage.setItem('golfive_lang', lang);
+      if (window.location.hostname.includes('golfive.com')) window.location.href = toLang(path, lang);
+    };
+
+    holder.querySelector('#lang-zh').addEventListener('click', switchLang('zh'));
+    holder.querySelector('#lang-en').addEventListener('click', switchLang('en'));
+    holder.querySelector('#lang-ja').addEventListener('click', switchLang('ja'));
   } catch (e) {
     console.warn('language routing skipped', e);
   }
