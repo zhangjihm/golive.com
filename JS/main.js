@@ -130,22 +130,34 @@ function validateEmail(email) {
 (function languageRouting() {
   try {
     const path = window.location.pathname;
-    const isEnPath = /(^|\/)en(\/|$)/.test(path);
-    const isJaPath = /(^|\/)ja(\/|$)/.test(path);
     const saved = localStorage.getItem('golfive_lang');
     const browserLang = (navigator.language || '').toLowerCase();
     const preferred = saved || (browserLang.startsWith('zh') ? 'zh' : (browserLang.startsWith('ja') ? 'ja' : 'en'));
 
+    const parts = path.split('/').filter(Boolean);
+    const langIdx = parts.findIndex((p) => p === 'en' || p === 'ja');
+    const currentLang = langIdx >= 0 ? parts[langIdx] : 'zh';
+
+    const isFile = (s) => /\.[a-z0-9]+$/i.test(s || '');
     const toLang = (p, lang) => {
-      const base = p.replace(/^\/(en|ja)/, '') || '/';
-      if (lang === 'zh') return base;
-      if (base === '/') return `/${lang}/`;
-      return `/${lang}${base.startsWith('/') ? base : '/' + base}`;
+      const seg = p.split('/').filter(Boolean);
+      const idx = seg.findIndex((x) => x === 'en' || x === 'ja');
+
+      // normalize by removing current lang segment first
+      if (idx >= 0) seg.splice(idx, 1);
+
+      if (lang !== 'zh') {
+        // insert language before last content segment (or at end for root)
+        const insertAt = seg.length === 0 ? 0 : (isFile(seg[seg.length - 1]) ? seg.length - 1 : seg.length - 1);
+        seg.splice(Math.max(insertAt, 0), 0, lang);
+      }
+
+      const trailingSlash = p.endsWith('/');
+      const out = '/' + seg.join('/');
+      return out + (trailingSlash || !isFile(seg[seg.length - 1]) ? '/' : '');
     };
 
-    const currentLang = isEnPath ? 'en' : (isJaPath ? 'ja' : 'zh');
-
-    if (!saved && window.location.hostname.includes('golfive.com') && preferred !== currentLang) {
+    if (!saved && preferred !== currentLang) {
       window.location.href = toLang(path, preferred);
       return;
     }
@@ -164,7 +176,7 @@ function validateEmail(email) {
     const switchLang = (lang) => (e) => {
       e.preventDefault();
       localStorage.setItem('golfive_lang', lang);
-      if (window.location.hostname.includes('golfive.com')) window.location.href = toLang(path, lang);
+      window.location.href = toLang(path, lang);
     };
 
     holder.querySelector('#lang-zh').addEventListener('click', switchLang('zh'));
