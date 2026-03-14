@@ -1,42 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golfive - Your Golf Blog & Community</title>
-    <meta name="description" content="Expert golf tips, course reviews, equipment guides, and community discussions for golfers of all levels.">
-    
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon - using a simple golf icon from a CDN -->
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/32/3096/3096328.png" type="image/x-icon">
-    
-    <!-- Main Stylesheet v2.0 - Enhanced Design -->
-    <link rel="stylesheet" href="CSS/style.css">
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "Golfive",
-        "description": "Your Ultimate Golf Blog & Community",
-        "url": "https://golfive.com",
-        "author": {
-            "@type": "Organization",
-            "name": "Golfive"
-        }
-    }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golfive - 你的高尔夫实战指南</title>
+  <meta name="description" content="实用的高尔夫技巧、装备指南和球场攻略，帮助普通球友稳定降杆。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/32/3096/3096328.png" type="image/x-icon">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style">
   <link rel="canonical" href="https://golfive.com/">
-  <meta property="og:title" content="Golfive">
-  <meta property="og:description" content="Golfive golf community and content.">
+  <meta property="og:title" content="Golfive - 你的高尔夫实战指南">
+  <meta property="og:description" content="实用的高尔夫技巧、装备指南和球场攻略，帮助普通球友稳定降杆。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfive.com/">
   <link rel="alternate" hreflang="zh" href="https://golfive.com/">
@@ -45,203 +22,150 @@
   <link rel="alternate" hreflang="x-default" href="https://golfive.com/">
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header with Navigation -->
-    <header class="header" role="banner">
-        <div class="container">
-            <div class="nav-container">
-                <a href="./" class="logo" aria-label="Golfive Home">
-                    <span class="logo-text">Golfive</span>
-                </a>
-                
-                <button id="mobile-menu-button" class="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav">
-                    <span class="sr-only">Toggle menu</span>
-                    <span>☰</span>
-                </button>
-                
-                <nav class="main-nav" id="main-nav" role="navigation">
-                    <ul id="mobile-menu" class="nav-menu">
-                        <li><a href="./" class="nav-link active">Home</a></li>
-                        <li><a href="blog/" class="nav-link">Blog</a></li>
-                        <li><a href="tips/" class="nav-link">Golf Tips</a></li>
-                        <li><a href="courses/" class="nav-link">Courses</a></li>
-                        <li><a href="shop/" class="nav-link">Shop</a></li>
-                        <li><a href="about/" class="nav-link">About</a></li>
-                        <li><a href="contact/" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-                
-                <div class="header-actions">
-                    <a href="cart/" class="cart-icon" aria-label="Shopping cart">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 11-4 0v-6m4 0V9a2 2 0 10-4 0v4.01"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+  <a href="#main-content" class="skip-link">跳转到主要内容</a>
+  <header class="header" role="banner">
+    <div class="container">
+      <div class="nav-container">
+        <a href="./" class="logo" aria-label="Golfive 首页"><span class="logo-text">Golfive</span></a>
+        <button id="mobile-menu-button" class="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">切换菜单</span><span>☰</span></button>
+        <nav class="main-nav" id="main-nav" role="navigation">
+          <ul id="mobile-menu" class="nav-menu">
+            <li><a href="./" class="nav-link active">首页</a></li>
+            <li><a href="blog/" class="nav-link">文章</a></li>
+            <li><a href="tips/" class="nav-link">技巧</a></li>
+            <li><a href="courses/" class="nav-link">球场</a></li>
+            <li><a href="shop/" class="nav-link">装备</a></li>
+            <li><a href="about/" class="nav-link">关于</a></li>
+            <li><a href="contact/" class="nav-link">联系</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions"><a href="cart/" class="cart-icon" aria-label="购物车">🛒</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">提升你的高尔夫水平</h1>
+          <p class="hero-subtitle">实用技巧、装备指南和球场攻略，帮助普通球友稳定降杆</p>
+          <div class="hero-buttons">
+            <a href="blog/" class="btn">阅读最新文章</a>
+            <a href="tips/" class="btn btn-outline">高尔夫技巧</a>
+          </div>
         </div>
-    </header>
-    
-    <main id="main-content" role="main">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Elevate Your Golf Game</h1>
-                    <p class="hero-subtitle">Expert tips, course reviews, and gear guides from passionate golfers</p>
-                    <div class="hero-buttons">
-                        <a href="blog/" class="btn">Read Latest Posts</a>
-                        <a href="tips/" class="btn btn-outline">Golf Tips</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Featured Posts -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Latest from the Fairway</h2>
-                    <a href="blog/" class="view-all">View All Posts</a>
-                </div>
-                
-                <div class="blog-grid">
-                    <article class="blog-post">
-                        <a class="post-image" href="posts/short-game/" aria-label="Read Mastering Your Short Game">
-                            <img src="images/user-post-2.jpg" alt="Golfer practice detail photo" loading="lazy">
-                        </a>
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <time datetime="2024-01-15">January 15, 2024</time>
-                                <span class="post-author">By John Smith</span>
-                            </div>
-                            <h3 class="post-title"><a href="posts/short-game/">Mastering Your Short Game</a></h3>
-                            <p class="post-excerpt">The short game is often the difference between a good golfer and a great one. Learn techniques to improve your chipping, pitching, and putting.</p>
-                            <a href="posts/short-game/" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-post">
-                        <a class="post-image" href="posts/top-courses/" aria-label="Read Top 10 Golf Courses to Visit in 2024">
-                            <img src="images/post-course.jpg" alt="Panoramic golf course view" loading="lazy">
-                        </a>
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <time datetime="2024-01-10">January 10, 2024</time>
-                                <span class="post-author">By Sarah Johnson</span>
-                            </div>
-                            <h3 class="post-title"><a href="posts/top-courses/">Top 10 Golf Courses to Visit in 2024</a></h3>
-                            <p class="post-excerpt">From Pebble Beach to St. Andrews, discover the world's most breathtaking golf courses that should be on every golfer's bucket list.</p>
-                            <a href="posts/top-courses/" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                    
-                    <article class="blog-post">
-                        <a class="post-image" href="posts/best-drivers/" aria-label="Read Equipment Review: Best Drivers of 2024">
-                            <img src="images/post-gear.jpg" alt="Golf club and gear photo" loading="lazy">
-                        </a>
-                        <div class="post-content">
-                            <div class="post-meta">
-                                <time datetime="2024-01-05">January 5, 2024</time>
-                                <span class="post-author">By Mike Davis</span>
-                            </div>
-                            <h3 class="post-title"><a href="posts/best-drivers/">Equipment Review: Best Drivers of 2024</a></h3>
-                            <p class="post-excerpt">We tested the latest drivers from TaylorMade, Callaway, Ping, and more to help you find the perfect club for your swing and budget.</p>
-                            <a href="posts/best-drivers/" class="read-more">Read More</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Features Section -->
-        <section class="section bg-light">
-            <div class="container">
-                <div class="features">
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="feature-title">Expert Tips</h3>
-                            <p class="feature-description">Professional advice to improve every aspect of your golf game</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="feature-title">Course Reviews</h3>
-                            <p class="feature-description">Detailed reviews of the best golf courses around the world</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                                </svg>
-                            </div>
-                            <h3 class="feature-title">Gear Guides</h3>
-                            <p class="feature-description">Honest reviews and recommendations for golf equipment</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4 class="footer-title">Golfive</h4>
-                    <p>Your ultimate golf blog and community for players of all skill levels.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="blog/">Blog</a></li>
-                        <li><a href="tips/">Golf Tips</a></li>
-                        <li><a href="courses/">Course Reviews</a></li>
-                        <li><a href="shop/">Shop</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Connect</h4>
-                    <ul class="footer-links">
-                        <li><a href="about/">About Us</a></li>
-                        <li><a href="contact/">Contact</a></li>
-                        <li><a href="privacy/">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Newsletter</h4>
-                    <form name="newsletter" method="POST" data-netlify="true" action="newsletter/success/" class="newsletter-form" id="newsletter-form">
-                        <input type="hidden" name="form-name" value="newsletter" />
-                        <input id="newsletter-email" name="email" type="email" class="newsletter-input" placeholder="Your email" required aria-label="Email for newsletter">
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2024 Golfive. All rights reserved.</p>
-                <p>golfive.com</p>
-            </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">最新文章</h2>
+          <a href="blog/" class="view-all">查看全部</a>
         </div>
-    </footer>
-    
-    <!-- JavaScript Files -->
-    <script src="JS/main.js"></script>
+        <div class="blog-grid">
+          <article class="blog-post">
+            <a class="post-image" href="posts/warmup-10min/" aria-label="阅读下场前10分钟热身流程">
+              <img src="images/user-hero-bg.jpg" alt="清晨球场热身" loading="lazy">
+            </a>
+            <div class="post-content">
+              <div class="post-meta"><time datetime="2024-01-15">2024年1月15日</time></div>
+              <h3 class="post-title"><a href="posts/warmup-10min/">下场前10分钟热身流程</a></h3>
+              <p class="post-excerpt">动态激活 + 渐进挥杆 + 推杆找速，帮助你第一洞就进入状态。</p>
+              <a href="posts/warmup-10min/" class="read-more">阅读更多</a>
+            </div>
+          </article>
+          <article class="blog-post">
+            <a class="post-image" href="posts/short-game/" aria-label="阅读短杆100码稳定打法">
+              <img src="images/user-post-2.jpg" alt="短杆练习" loading="lazy">
+            </a>
+            <div class="post-content">
+              <div class="post-meta"><time datetime="2024-01-10">2024年1月10日</time></div>
+              <h3 class="post-title"><a href="posts/short-game/">短杆100码稳定打法</a></h3>
+              <p class="post-excerpt">建立可重复系统，减少100码内失误，稳定降低总杆数。</p>
+              <a href="posts/short-game/" class="read-more">阅读更多</a>
+            </div>
+          </article>
+          <article class="blog-post">
+            <a class="post-image" href="posts/top-courses/" aria-label="阅读2026年值得去的高尔夫球场">
+              <img src="images/post-course.jpg" alt="球场美景" loading="lazy">
+            </a>
+            <div class="post-content">
+              <div class="post-meta"><time datetime="2024-01-05">2024年1月5日</time></div>
+              <h3 class="post-title"><a href="posts/top-courses/">2026年值得去的高尔夫球场</a></h3>
+              <p class="post-excerpt">精选景美、策略性强、性价比高的球场推荐。</p>
+              <a href="posts/top-courses/" class="read-more">阅读更多</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="features">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">💡</div>
+              <h3 class="feature-title">实战技巧</h3>
+              <p class="feature-description">从热身到短杆，提供可立即执行的训练方法</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">⛳</div>
+              <h3 class="feature-title">球场攻略</h3>
+              <p class="feature-description">精选国内外优质球场，分享实战经验和策略</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🏌️</div>
+              <h3 class="feature-title">装备指南</h3>
+              <p class="feature-description">根据预算和水平，推荐最适合的球杆和配件</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4 class="footer-title">Golfive</h4>
+          <p>为各级别球友提供实用的高尔夫技巧、装备指南和球场攻略。</p>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">快速链接</h4>
+          <ul class="footer-links">
+            <li><a href="blog/">文章</a></li>
+            <li><a href="tips/">技巧</a></li>
+            <li><a href="courses/">球场</a></li>
+            <li><a href="shop/">装备</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">联系我们</h4>
+          <ul class="footer-links">
+            <li><a href="about/">关于我们</a></li>
+            <li><a href="contact/">联系方式</a></li>
+            <li><a href="privacy/">隐私政策</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">订阅通讯</h4>
+          <form name="newsletter" method="POST" data-netlify="true" action="newsletter/success/" class="newsletter-form" id="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter" />
+            <input id="newsletter-email" name="email" type="email" class="newsletter-input" placeholder="你的邮箱" required aria-label="订阅邮箱">
+            <button type="submit" class="btn">订阅</button>
+          </form>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 Golfive. 保留所有权利。</p>
+        <p>golfive.com</p>
+      </div>
+    </div>
+  </footer>
+  <script src="JS/main.js"></script>
 </body>
 </html>
