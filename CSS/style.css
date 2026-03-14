@@ -21,6 +21,8 @@ Last updated: Feb 2025
   --background-cream: #fdfbf7;
   --border-color: #e2e8f0;
   --border-light: #edf2f7;
+  --image-tone-base: saturate(0.88) contrast(1.06) brightness(0.94);
+  --image-tone-hover: saturate(0.95) contrast(1.08) brightness(0.98);
   
   /* Enhanced Shadows - More depth */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
@@ -79,7 +81,9 @@ body {
   font-family: var(--font-primary);
   line-height: 1.7;
   color: var(--text-primary);
-  background-color: var(--background-light);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(212, 175, 55, 0.06), transparent 35%),
+    linear-gradient(180deg, #f6f8f9 0%, var(--background-light) 35%, #f4f6f8 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -350,9 +354,10 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+  background:
+    radial-gradient(circle at 18% 70%, rgba(244, 208, 63, 0.16) 0%, transparent 48%),
+    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.12) 0%, transparent 38%),
+    linear-gradient(180deg, rgba(8, 28, 18, 0.12) 0%, rgba(8, 28, 18, 0.36) 100%);
   pointer-events: none;
 }
 
@@ -378,7 +383,7 @@ a:hover {
   font-size: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: var(--spacing-lg);
   color: white;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+  text-shadow: 0 4px 24px rgba(0,0,0,0.45);
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -444,6 +449,7 @@ a:hover {
 
 .blog-post:hover .post-image img {
   transform: scale(1.05);
+  filter: var(--image-tone-hover);
 }
 
 .post-image {
@@ -471,7 +477,8 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  filter: var(--image-tone-base);
+  transition: transform var(--transition-slow), filter var(--transition-base);
 }
 
 .post-content {
