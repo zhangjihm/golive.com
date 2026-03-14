@@ -134,27 +134,23 @@ function validateEmail(email) {
     const browserLang = (navigator.language || '').toLowerCase();
     const preferred = saved || (browserLang.startsWith('zh') ? 'zh' : (browserLang.startsWith('ja') ? 'ja' : 'en'));
 
-    const parts = path.split('/').filter(Boolean);
-    const langIdx = parts.findIndex((p) => p === 'en' || p === 'ja');
-    const currentLang = langIdx >= 0 ? parts[langIdx] : 'zh';
+    // Support both production root and preview nested base path
+    const seg = path.split('/').filter(Boolean);
+    let basePrefix = '';
+    if (window.location.hostname.includes('raw.githack.com') && seg.length >= 3) {
+      basePrefix = '/' + seg.slice(0, 3).join('/'); // /owner/repo/branch
+    }
 
-    const isFile = (s) => /\.[a-z0-9]+$/i.test(s || '');
+    const restPath = path.slice(basePrefix.length) || '/';
+    const isEnPath = /^\/en(\/|$)/.test(restPath);
+    const isJaPath = /^\/ja(\/|$)/.test(restPath);
+    const currentLang = isEnPath ? 'en' : (isJaPath ? 'ja' : 'zh');
+
     const toLang = (p, lang) => {
-      const seg = p.split('/').filter(Boolean);
-      const idx = seg.findIndex((x) => x === 'en' || x === 'ja');
-
-      // normalize by removing current lang segment first
-      if (idx >= 0) seg.splice(idx, 1);
-
-      if (lang !== 'zh') {
-        // insert language before last content segment (or at end for root)
-        const insertAt = seg.length === 0 ? 0 : (isFile(seg[seg.length - 1]) ? seg.length - 1 : seg.length - 1);
-        seg.splice(Math.max(insertAt, 0), 0, lang);
-      }
-
-      const trailingSlash = p.endsWith('/');
-      const out = '/' + seg.join('/');
-      return out + (trailingSlash || !isFile(seg[seg.length - 1]) ? '/' : '');
+      const local = (p.slice(basePrefix.length) || '/').replace(/^\/(en|ja)(?=\/|$)/, '');
+      const normalized = local.startsWith('/') ? local : '/' + local;
+      if (lang === 'zh') return basePrefix + normalized;
+      return basePrefix + `/${lang}` + (normalized === '/' ? '/' : normalized);
     };
 
     if (!saved && preferred !== currentLang) {
