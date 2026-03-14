@@ -15,7 +15,7 @@
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/32/3096/3096328.png" type="image/x-icon">
     
     <!-- Main Stylesheet v2.0 - Enhanced Design -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     
     <!-- Preload critical assets -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style">
@@ -47,13 +47,13 @@
                     <span class="logo-text">Golfive</span>
                 </a>
                 
-                <button class="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav">
+                <button id="mobile-menu-button" class="mobile-menu-btn" aria-expanded="false" aria-controls="main-nav">
                     <span class="sr-only">Toggle menu</span>
                     <span>☰</span>
                 </button>
                 
                 <nav class="main-nav" id="main-nav" role="navigation">
-                    <ul class="nav-menu">
+                    <ul id="mobile-menu" class="nav-menu">
                         <li><a href="/" class="nav-link active">Home</a></li>
                         <li><a href="/blog" class="nav-link">Blog</a></li>
                         <li><a href="/tips" class="nav-link">Golf Tips</a></li>
@@ -100,13 +100,13 @@
                 
                 <div class="blog-grid">
                     <article class="blog-post">
-                        <div class="post-image">
+                        <a class="post-image" href="/posts/short-game" aria-label="Read Mastering Your Short Game">
                             <img src="images/short-game.jpg" 
                                  srcset="images/short-game.jpg 800w"
                                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                  alt="Golfer practicing short game on green" 
                                  loading="lazy">
-                        </div>
+                        </a>
                         <div class="post-content">
                             <div class="post-meta">
                                 <time datetime="2024-01-15">January 15, 2024</time>
@@ -119,13 +119,13 @@
                     </article>
                     
                     <article class="blog-post">
-                        <div class="post-image">
+                        <a class="post-image" href="/posts/top-courses" aria-label="Read Top 10 Golf Courses to Visit in 2024">
                             <img src="images/golf-courses.jpg" 
                                  srcset="images/golf-courses.jpg 800w"
                                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                  alt="Beautiful golf course at sunset" 
                                  loading="lazy">
-                        </div>
+                        </a>
                         <div class="post-content">
                             <div class="post-meta">
                                 <time datetime="2024-01-10">January 10, 2024</time>
@@ -138,13 +138,13 @@
                     </article>
                     
                     <article class="blog-post">
-                        <div class="post-image">
+                        <a class="post-image" href="/posts/best-drivers" aria-label="Read Equipment Review: Best Drivers of 2024">
                             <img src="images/golf-drivers.jpg" 
                                  srcset="images/golf-drivers.jpg 800w"
                                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                  alt="Collection of golf drivers and equipment" 
                                  loading="lazy">
-                        </div>
+                        </a>
                         <div class="post-content">
                             <div class="post-meta">
                                 <time datetime="2024-01-05">January 5, 2024</time>
@@ -230,7 +230,7 @@
                 <div class="footer-section">
                     <h4 class="footer-title">Newsletter</h4>
                     <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Your email" required aria-label="Email for newsletter">
+                        <input id="newsletter-email" type="email" class="newsletter-input" placeholder="Your email" required aria-label="Email for newsletter">
                         <button type="submit" class="btn">Subscribe</button>
                     </form>
                 </div>
@@ -244,8 +244,6 @@
     </footer>
     
     <!-- JavaScript Files -->
-    <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/forms.js"></script>
+    <script src="JS/main.js"></script>
 </body>
 </html>
