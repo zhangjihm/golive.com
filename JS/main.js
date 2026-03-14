@@ -120,8 +120,67 @@ function validateEmail(email) {
   const path = window.location.pathname.replace(/index\.html$/, '');
   document.querySelectorAll('.nav-link').forEach((link) => {
     const href = (link.getAttribute('href') || '').replace(/index\.html$/, '');
-    if ((path === '/' && href === '/') || (href !== '/' && path.startsWith(href))) {
+    if ((path === '/' && href === '/') || (href !== '/' && path.includes(href))) {
       link.classList.add('active');
     }
   });
+})();
+
+// Language routing + switcher (zh default, /en for English)
+(function languageRouting() {
+  try {
+    const path = window.location.pathname;
+    const isEnPath = /(^|\/)en(\/|$)/.test(path);
+    const saved = localStorage.getItem('golfive_lang');
+    const browserLang = (navigator.language || '').toLowerCase();
+    const preferred = saved || (browserLang.startsWith('zh') ? 'zh' : 'en');
+
+    const toEn = (p) => {
+      if (/^\/en\//.test(p)) return p;
+      if (p === '/') return '/en/';
+      return '/en' + (p.startsWith('/') ? p : '/' + p);
+    };
+
+    const toZh = (p) => {
+      if (!/^\/en\//.test(p) && p !== '/en') return p;
+      if (p === '/en' || p === '/en/') return '/';
+      return p.replace(/^\/en/, '') || '/';
+    };
+
+    if (!saved) {
+      if (preferred === 'en' && !isEnPath && window.location.hostname.includes('golfive.com')) {
+        window.location.href = toEn(path);
+        return;
+      }
+      if (preferred === 'zh' && isEnPath && window.location.hostname.includes('golfive.com')) {
+        window.location.href = toZh(path);
+        return;
+      }
+    }
+
+    const nav = document.querySelector('.nav-container');
+    if (!nav) return;
+    const holder = document.createElement('div');
+    holder.style.marginLeft = '12px';
+    holder.style.display = 'inline-flex';
+    holder.style.alignItems = 'center';
+    holder.style.gap = '8px';
+    holder.innerHTML = `<a href="#" id="lang-zh" style="color:#fff;opacity:${isEnPath ? '0.75' : '1'};font-weight:600;">中</a><span style="color:rgba(255,255,255,.6)">/</span><a href="#" id="lang-en" style="color:#fff;opacity:${isEnPath ? '1' : '0.75'};font-weight:600;">EN</a>`;
+    nav.appendChild(holder);
+
+    const zh = holder.querySelector('#lang-zh');
+    const en = holder.querySelector('#lang-en');
+    zh.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.setItem('golfive_lang', 'zh');
+      if (window.location.hostname.includes('golfive.com')) window.location.href = toZh(path);
+    });
+    en.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.setItem('golfive_lang', 'en');
+      if (window.location.hostname.includes('golfive.com')) window.location.href = toEn(path);
+    });
+  } catch (e) {
+    console.warn('language routing skipped', e);
+  }
 })();
