@@ -270,13 +270,20 @@ a:hover {
 
 /* ===== HEADER & NAVIGATION ===== */
 .header {
-  background: linear-gradient(135deg, var(--primary-green), var(--primary-green-dark));
+  background: linear-gradient(135deg, var(--primary-green-dark) 0%, var(--primary-green) 100%);
   color: white;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: var(--shadow-medium);
+  backdrop-filter: blur(10px);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.header.header-hidden {
+  transform: translateY(-110%);
 }
 
 .nav-container {
@@ -858,21 +865,6 @@ a:hover {
 }
 
 /* ===== HEADER & NAVIGATION ENHANCEMENTS ===== */
-.header {
-  background: linear-gradient(135deg, var(--primary-green-dark) 0%, var(--primary-green) 100%);
-  color: white;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: var(--shadow-medium);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease;
-}
-
-.header.header-hidden {
-  transform: translateY(-100%);
-}
 
 .nav-container {
   display: flex;

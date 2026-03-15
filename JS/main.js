@@ -39,39 +39,46 @@ if (mobileMenuButton && mobileMenu) {
 
 // Sticky header effect + back to top visibility + auto hide/show
 let lastScrollY = window.scrollY;
-let ticking = false;
+let headerHidden = false;
 
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      const currentScrollY = window.scrollY;
-      
-      if (!header) return;
-      
-      // Add scrolled class for styling
-      if (currentScrollY > 100) {
-        header.classList.add('scrolled');
-        if (backToTopBtn) backToTopBtn.classList.add('visible');
-      } else {
-        header.classList.remove('scrolled');
-        if (backToTopBtn) backToTopBtn.classList.remove('visible');
-      }
-      
-      // Auto hide/show header based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 150) {
-        // Scrolling down - hide header
-        header.classList.add('header-hidden');
-      } else {
-        // Scrolling up - show header
-        header.classList.remove('header-hidden');
-      }
-      
-      lastScrollY = currentScrollY;
-      ticking = false;
-    });
-    ticking = true;
+function updateHeader() {
+  if (!header) return;
+  
+  const currentScrollY = window.scrollY;
+  const scrollDelta = currentScrollY - lastScrollY;
+  
+  // Back to top button visibility
+  if (backToTopBtn) {
+    if (currentScrollY > 400) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
   }
-});
+  
+  // Header auto hide/show logic
+  // Only trigger hide/show after scrolling past initial viewport
+  if (currentScrollY > 100) {
+    if (scrollDelta > 5 && !headerHidden) {
+      // Scrolling down fast enough - hide header
+      header.classList.add('header-hidden');
+      headerHidden = true;
+    } else if (scrollDelta < -3 && headerHidden) {
+      // Scrolling up - show header
+      header.classList.remove('header-hidden');
+      headerHidden = false;
+    }
+  } else {
+    // Near top - always show header
+    header.classList.remove('header-hidden');
+    headerHidden = false;
+  }
+  
+  lastScrollY = currentScrollY;
+}
+
+// Use passive scroll listener for better performance
+window.addEventListener('scroll', updateHeader, { passive: true });
 
 if (backToTopBtn) {
   backToTopBtn.addEventListener('click', () => {
