@@ -38,43 +38,87 @@
     mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
   }
 
-  // Header auto hide/show on scroll
+  // Header auto hide/show on scroll - Enhanced version
   if (header) {
     let lastScrollY = window.scrollY;
+    let lastScrollTime = Date.now();
+    let scrollVelocity = 0;
     let ticking = false;
+    
+    // Configuration
+    const CONFIG = {
+      thresholdDown: 2,      // 下滚多少像素触发隐藏（越小越灵敏）
+      thresholdUp: 1,        // 上滚多少像素触发显示（越小越灵敏）
+      minScrollToHide: 50,   // 至少滚动多少距离才开始考虑隐藏
+      velocityFactor: 0.3    // 速度因子，用于平滑处理
+    };
     
     function updateHeader() {
       const currentScrollY = window.scrollY;
+      const currentTime = Date.now();
+      const timeDelta = currentTime - lastScrollTime;
       const scrollDelta = currentScrollY - lastScrollY;
       
-      // Back to top button
-      if (backToTopBtn) {
-        backToTopBtn.style.opacity = currentScrollY > 400 ? '1' : '0';
-        backToTopBtn.style.visibility = currentScrollY > 400 ? 'visible' : 'hidden';
+      // Calculate scroll velocity (pixels per millisecond)
+      if (timeDelta > 0) {
+        const currentVelocity = scrollDelta / timeDelta;
+        scrollVelocity = scrollVelocity * (1 - CONFIG.velocityFactor) + currentVelocity * CONFIG.velocityFactor;
       }
       
-      // Header hide/show logic
-      if (currentScrollY < 80) {
-        // Always show near top
+      // Back to top button - smooth opacity transition
+      if (backToTopBtn) {
+        const showBackToTop = currentScrollY > 300;
+        backToTopBtn.style.opacity = showBackToTop ? '1' : '0';
+        backToTopBtn.style.visibility = showBackToTop ? 'visible' : 'hidden';
+      }
+      
+      // Header hide/show logic with velocity awareness
+      const shouldShow = currentScrollY < CONFIG.minScrollToHide || 
+                         scrollDelta < -CONFIG.thresholdUp || 
+                         (scrollDelta < 0 && scrollVelocity < -0.1);
+                         
+      const shouldHide = currentScrollY >= CONFIG.minScrollToHide && 
+                         scrollDelta > CONFIG.thresholdDown && 
+                         scrollVelocity > 0.05;
+      
+      if (shouldShow) {
         header.classList.remove('header-hidden');
-      } else if (scrollDelta > 8) {
-        // Scrolling down - hide
+      } else if (shouldHide) {
         header.classList.add('header-hidden');
-      } else if (scrollDelta < -5) {
-        // Scrolling up - show
-        header.classList.remove('header-hidden');
       }
       
       lastScrollY = currentScrollY;
+      lastScrollTime = currentTime;
       ticking = false;
     }
 
-    window.addEventListener('scroll', () => {
+    // Use both scroll and touchmove for mobile responsiveness
+    const updateOnScroll = () => {
       if (!ticking) {
         requestAnimationFrame(updateHeader);
         ticking = true;
       }
+    };
+
+    window.addEventListener('scroll', updateOnScroll, { passive: true });
+    
+    // Also handle touch events for mobile Safari
+    let touchStartY = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
     }, { passive: true });
+    
+    document.addEventListener('touchmove', (e) => {
+      const touchY = e.touches[0].clientY;
+      const touchDelta = touchStartY - touchY;
+      
+      if (Math.abs(touchDelta) > 5) {
+        updateOnScroll();
+      }
+    }, { passive: true });
+    
+    // Initial check
+    updateHeader();
   }
 
   // Back to top button click
