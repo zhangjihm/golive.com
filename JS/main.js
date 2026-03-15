@@ -37,15 +37,15 @@ if (mobileMenuButton && mobileMenu) {
   mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
 }
 
-// Sticky header effect
+// Sticky header effect + back to top visibility
 window.addEventListener('scroll', () => {
   if (!header) return;
   if (window.scrollY > 100) {
     header.classList.add('scrolled');
-    if (backToTopBtn) backToTopBtn.classList.remove('hidden');
+    if (backToTopBtn) backToTopBtn.classList.add('visible');
   } else {
     header.classList.remove('scrolled');
-    if (backToTopBtn) backToTopBtn.classList.add('hidden');
+    if (backToTopBtn) backToTopBtn.classList.remove('visible');
   }
 });
 
@@ -182,3 +182,12 @@ function validateEmail(email) {
     console.warn('language routing skipped', e);
   }
 })();
+
+// Image loading animation
+document.querySelectorAll('img').forEach(img => {
+  if (img.complete) {
+    img.classList.add('loaded');
+  } else {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+  }
+});

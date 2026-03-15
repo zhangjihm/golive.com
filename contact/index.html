@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Golfive</title>
-  <meta name="description" content="Contact - Golfive golf community and content.">
+  <title>联系我们 | Golfive</title>
+  <meta name="description" content="联系 Golfive，获取高尔夫技巧建议、装备推荐或内容合作咨询。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="canonical" href="https://golfive.com/contact/">
-  <meta property="og:title" content="Golfive">
-  <meta property="og:description" content="Golfive golf community and content.">
+  <meta property="og:title" content="联系我们 | Golfive">
+  <meta property="og:description" content="联系 Golfive，获取高尔夫技巧建议、装备推荐或内容合作咨询。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://golfive.com/contact/">
   <link rel="alternate" hreflang="zh" href="https://golfive.com/contact/">
@@ -34,30 +34,91 @@
             <li><a href="../courses/" class="nav-link">球场</a></li>
             <li><a href="../shop/" class="nav-link">装备</a></li>
             <li><a href="../about/" class="nav-link">关于</a></li>
-            <li><a href="../contact/" class="nav-link">联系</a></li>
+            <li><a href="../contact/" class="nav-link active">联系</a></li>
           </ul>
         </nav>
         <div class="header-actions"><a href="../cart/" class="cart-icon" aria-label="购物车">🛒</a></div>
       </div>
     </div>
   </header>
-  <main id="main-content" role="main" class="section">
-    <div class="container">
-      <h1 class="section-title">Contact Us</h1>
-      <p>Tell us what you want next: drills, gear guides, or course reviews.</p><form name="contact" method="POST" data-netlify="true" action="../contact/success/" class="newsletter-form" style="max-width:640px;display:grid;gap:12px"><input type="hidden" name="form-name" value="contact" /><input type="text" name="name" class="newsletter-input" placeholder="你的姓名" required><input type="email" name="email" class="newsletter-input" placeholder="你的邮箱" required><textarea name="message" class="newsletter-input" placeholder="你的留言" style="min-height:140px;border-radius:16px" required></textarea><button class="btn" type="submit">发送消息</button></form>
-    </div>
+
+  <main id="main-content" role="main">
+    <section class="section" style="padding-top: 3rem;">
+      <div class="container" style="max-width: 800px;">
+        <h1 class="section-title">联系我们</h1>
+        
+        <div style="display: grid; gap: 2rem; margin-bottom: 3rem;">
+          <div style="text-align: center; padding: 2rem; background: var(--background-cream); border-radius: 16px;">
+            <span style="font-size: 3rem;">💬</span>
+            <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">内容建议</h3>
+            <p style="color: var(--text-secondary);">想看什么主题的技巧文章？告诉我们你的痛点。</p>
+          </div>
+          
+          <div style="text-align: center; padding: 2rem; background: var(--background-cream); border-radius: 16px;">
+            <span style="font-size: 3rem;">🏌️</span>
+            <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">装备咨询</span>
+            <p style="color: var(--text-secondary);">不确定该买什么杆？提供你的预算和水平，我们给建议。</p>
+          </div>
+          
+          <div style="text-align: center; padding: 2rem; background: var(--background-cream); border-radius: 16px;">
+            <span style="font-size: 3rem;">🤝</span>
+            <h3 style="margin-top: 1rem; margin-bottom: 0.5rem;">商务合作</span>
+            <p style="color: var(--text-secondary);">品牌合作、内容共创、球场体验邀约。</p>
+          </div>
+        </div>
+
+        <div style="background: white; padding: 2.5rem; border-radius: 16px; box-shadow: var(--shadow-light);">
+          <h2 style="margin-bottom: 1.5rem; color: var(--primary-green);">发送消息</h2>
+          <form name="contact" method="POST" data-netlify="true" action="success/" class="newsletter-form" style="display: grid; gap: 1rem;">
+            <input type="hidden" name="form-name" value="contact"/>
+            <div>
+              <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">姓名</label>
+              <input type="text" id="name" name="name" class="newsletter-input" placeholder="你的名字" required style="width: 100%;">
+            </div>
+            <div>
+              <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">邮箱</label>
+              <input type="email" id="email" name="email" class="newsletter-input" placeholder="your@email.com" required style="width: 100%;">
+            </div>
+            <div>
+              <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">主题</label>
+              <select id="subject" name="subject" class="newsletter-input" style="width: 100%; appearance: auto; padding-right: 1rem;">
+                <option value="content">内容建议</option>
+                <option value="gear">装备咨询</option>
+                <option value="business">商务合作</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">留言</label>
+              <textarea id="message" name="message" class="newsletter-input" placeholder="请详细描述你的问题或建议..." required style="width: 100%; min-height: 150px; border-radius: 12px; padding: 1rem;"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; margin-top: 0.5rem;">发送消息</button>
+          </form>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, var(--primary-green-dark), var(--primary-green)); border-radius: 16px; color: white;">
+          <p style="margin-bottom: 0.5rem;">回复时间：通常 1-2 个工作日</p>
+          <p style="opacity: 0.9;">期待听到你的声音 ⛳</p>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
-        <div class="footer-section"><h4 class="footer-title">Golfive</h4><p>Your ultimate golf blog and community for players of all skill levels.</p></div>
+        <div class="footer-section"><h4 class="footer-title">Golfive</h4><p>为各级别球友提供实用的高尔夫内容。</p></div>
         <div class="footer-section"><h4 class="footer-title">快速链接</h4><ul class="footer-links"><li><a href="../blog/">文章</a></li><li><a href="../tips/">高尔夫技巧</a></li><li><a href="../courses/">球场评测</a></li><li><a href="../shop/">装备</a></li></ul></div>
         <div class="footer-section"><h4 class="footer-title">联系我们</h4><ul class="footer-links"><li><a href="../about/">关于我们</a></li><li><a href="../contact/">联系</a></li><li><a href="../privacy/">隐私政策</a></li></ul></div>
         <div class="footer-section"><h4 class="footer-title">订阅通讯</h4><form name="newsletter" method="POST" data-netlify="true" action="../newsletter/success/" class="newsletter-form" id="newsletter-form"><input type="hidden" name="form-name" value="newsletter" /><input id="newsletter-email" name="email" type="email" class="newsletter-input" placeholder="你的邮箱" required aria-label="Email for newsletter"><button type="submit" class="btn">订阅</button></form></div>
       </div>
-      <div class="copyright"><p>&copy; 2026 Golfive. All rights reserved.</p><p>golfive.com</p></div>
+      <div class="copyright"><p>&copy; 2026 Golfive. 保留所有权利。</p><p>golfive.com</p></div>
     </div>
   </footer>
+  
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" aria-label="返回顶部">↑</button>
+  
   <script src="../JS/main.js"></script>
 </body>
 </html>
