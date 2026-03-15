@@ -37,15 +37,39 @@ if (mobileMenuButton && mobileMenu) {
   mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
 }
 
-// Sticky header effect + back to top visibility
+// Sticky header effect + back to top visibility + auto hide/show
+let lastScrollY = window.scrollY;
+let ticking = false;
+
 window.addEventListener('scroll', () => {
-  if (!header) return;
-  if (window.scrollY > 100) {
-    header.classList.add('scrolled');
-    if (backToTopBtn) backToTopBtn.classList.add('visible');
-  } else {
-    header.classList.remove('scrolled');
-    if (backToTopBtn) backToTopBtn.classList.remove('visible');
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const currentScrollY = window.scrollY;
+      
+      if (!header) return;
+      
+      // Add scrolled class for styling
+      if (currentScrollY > 100) {
+        header.classList.add('scrolled');
+        if (backToTopBtn) backToTopBtn.classList.add('visible');
+      } else {
+        header.classList.remove('scrolled');
+        if (backToTopBtn) backToTopBtn.classList.remove('visible');
+      }
+      
+      // Auto hide/show header based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 150) {
+        // Scrolling down - hide header
+        header.classList.add('header-hidden');
+      } else {
+        // Scrolling up - show header
+        header.classList.remove('header-hidden');
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    });
+    ticking = true;
   }
 });
 
