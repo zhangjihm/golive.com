@@ -1010,6 +1010,188 @@ a:hover {
 .bg-primary { background: var(--primary-green); }
 .hidden { display: none; }
 
+/* ===== MAGAZINE/EDITORIAL STYLES ===== */
+
+/* Article typography enhancements */
+article h2 {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  color: var(--primary-green);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+article h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--primary-green));
+  border-radius: 2px;
+}
+
+article h3 {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* Drop cap for first paragraph */
+article > p:first-of-type::first-letter {
+  font-family: var(--font-secondary);
+  font-size: 4rem;
+  font-weight: 700;
+  float: left;
+  line-height: 0.8;
+  padding-right: 0.75rem;
+  color: var(--primary-green);
+}
+
+/* Lead paragraph styling */
+article > p:first-of-type {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Pull quotes */
+.pull-quote {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--primary-green);
+  text-align: center;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--accent-gold);
+  border-bottom: 2px solid var(--accent-gold);
+  background: var(--background-cream);
+  position: relative;
+}
+
+.pull-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--accent-gold);
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+  font-family: Georgia, serif;
+}
+
+/* Highlight box */
+.highlight-box {
+  background: linear-gradient(135deg, var(--background-cream), #fff);
+  border-left: 4px solid var(--accent-gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--shadow-light);
+}
+
+/* Tip box */
+.tip-box {
+  background: var(--primary-green);
+  color: white;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.tip-box::before {
+  content: '💡';
+  font-size: 1.5rem;
+  position: absolute;
+  top: -0.75rem;
+  left: 1.5rem;
+  background: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.tip-box h4 {
+  color: var(--accent-gold);
+  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Step numbers for instructional content */
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--primary-green);
+  color: white;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Article meta styling */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Better list styling for articles */
+article ul li,
+article ol li {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+article ul li::marker {
+  color: var(--primary-green);
+}
+
+/* Image caption */
+.image-caption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Section divider */
+.section-divider {
+  display: flex;
+  align-items: center;
+  margin: 3rem 0;
+  color: var(--accent-gold);
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.section-divider span {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+}
+
 /* Back to top button */
 .back-to-top {
   position: fixed;
