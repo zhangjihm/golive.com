@@ -1189,6 +1189,48 @@ article ul li::marker {
   font-size: 1.5rem;
 }
 
+/* Image styles */
+figure {
+  margin: 2rem 0;
+}
+
+figure img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  transition: transform var(--transition-base);
+}
+
+figure img:hover {
+  transform: scale(1.01);
+}
+
+.image-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.75rem;
+  padding: 0 1rem;
+}
+
+/* Article images */
+article figure {
+  position: relative;
+}
+
+article figure::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+  border-radius: 0 0 12px 12px;
+  pointer-events: none;
+}
+
 /* Back to top button */
 .back-to-top {
   position: fixed;
